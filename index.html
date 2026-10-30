@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aninda Roy Dhruba</title>
+<meta name="description" content="Aninda Roy Dhruba — Lecturer at Northern University Bangladesh. Notes on teaching, NLP research, and whatever else I'm building.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700;800&family=Caveat:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1E2B26;
+    --paper:#EFE8D6;
+    --paper-2:#E4DBC2;
+    --card:#F8F3E4;
+    --teal:#1F7A6C;
+    --teal-dark:#155950;
+    --coral:#D65A34;
+    --mustard:#C8912F;
+    --text:#2B2620;
+    --muted:#736A5B;
+    --rule:#C7BC9E;
+    --tape:rgba(200,145,47,.32);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--paper);
+    color:var(--text);
+    line-height:1.7;
+    font-size:16px;
+  }
+
+  a{color:var(--teal-dark); text-decoration-color:var(--rule); text-underline-offset:3px;}
+  a:hover{color:var(--coral);}
+
+  h1,h2,h3,h4{ font-family:'Bitter', serif; color:var(--ink); }
+
+  .hand{ font-family:'Caveat', cursive; }
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 2rem;}
+
+  /* ============ NAV ============ */
+  nav{
+    position:sticky; top:0; z-index:200;
+    background:var(--paper);
+    border-bottom:1px solid var(--rule);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:60px; }
+  nav .brand{ font-family:'Bitter', serif; font-weight:700; font-size:1.05rem; color:var(--ink); text-decoration:none; }
+  nav ul{ list-style:none; display:flex; gap:1.7rem; }
+  nav a{ text-decoration:none; font-size:.92rem; color:var(--muted); padding:.3rem 0; border-bottom:1px solid transparent; }
+  nav a:hover{ color:var(--coral); border-bottom-color:var(--coral); }
+  .nav-toggle{ display:none; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--ink); }
+
+  /* ============ HEADER ============ */
+  header.top{
+    padding:3.4rem 2rem 2.6rem;
+    max-width:1080px;
+    margin:0 auto;
+    position:relative;
+  }
+  header.top h1{
+    font-size:2.7rem;
+    font-weight:800;
+    letter-spacing:-.01em;
+  }
+  header.top .role{
+    font-size:1.05rem;
+    color:var(--muted);
+    margin-top:.5rem;
+    max-width:520px;
+  }
+  header.top .aside-note{
+    font-family:'Caveat', cursive;
+    font-size:1.35rem;
+    color:var(--coral);
+    position:absolute;
+    top:2.2rem; right:2rem;
+    transform:rotate(-4deg);
+    text-align:right;
+    line-height:1.25;
+  }
+  header.top .aside-note svg{ display:block; margin:.2rem 0 0 auto; }
+  @media (max-width:760px){ header.top .aside-note{ display:none; } }
+
+  /* ============ LAYOUT ============ */
+  .layout{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 2rem 1rem;
+    display:grid;
+    grid-template-columns: 260px 1fr;
+    gap:3rem;
+    align-items:start;
+  }
+
+  /* ---- Sidebar ---- */
+  aside.profile{ position:sticky; top:84px; }
+
+  .polaroid{
+    background:#fff;
+    padding:.7rem .7rem 2.2rem;
+    box-shadow:0 3px 10px rgba(30,43,38,.18);
+    transform:rotate(-2.5deg);
+    max-width:230px;
+    margin:0 auto 1rem;
+    position:relative;
+  }
+  .polaroid .tape{
+    position:absolute; top:-10px; left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+    width:70px; height:22px;
+    background:var(--tape);
+    border:1px solid rgba(200,145,47,.4);
+  }
+  .polaroid .shot{
+    width:100%; aspect-ratio:1/1;
+    background:var(--paper-2);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+    position:relative;
+  }
+  .polaroid .shot img{ width:100%; height:100%; object-fit:cover; display:block; filter:sepia(.12) contrast(1.02); }
+  .polaroid .monogram{ font-family:'Bitter', serif; font-weight:800; font-size:2.6rem; color:var(--teal); }
+  .polaroid .cap{
+    font-family:'Caveat', cursive;
+    font-size:1.15rem;
+    color:var(--muted);
+    text-align:center;
+    margin-top:.6rem;
+  }
+
+  .contact-block{ text-align:center; margin-bottom:1.6rem; }
+  .contact-block h2{ font-size:1.25rem; }
+  .contact-block .dept{ font-size:.85rem; color:var(--muted); margin-top:.15rem; }
+  .contact-block ul{ list-style:none; margin-top:1rem; font-size:.9rem; }
+  .contact-block li{ padding:.25rem 0; }
+
+  .btn-cv{
+    display:block; text-align:center;
+    margin:0 auto 1.4rem;
+    max-width:220px;
+    background:var(--ink);
+    color:var(--paper);
+    font-size:.88rem;
+    text-decoration:none;
+    padding:.65rem 1rem;
+    border-radius:2px;
+  }
+  .btn-cv:hover{ background:var(--coral); color:#fff; }
+
+  .pin-note{
+    background:var(--card);
+    border:1px solid var(--rule);
+    padding:.9rem 1rem;
+    font-size:.84rem;
+    color:var(--muted);
+    position:relative;
+    transform:rotate(1deg);
+  }
+  .pin-note::before{
+    content:"";
+    position:absolute; top:-6px; left:50%; transform:translateX(-50%);
+    width:10px; height:10px; border-radius:50%;
+    background:var(--coral);
+    box-shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+  .pin-note strong{ color:var(--ink); display:block; margin-bottom:.3rem; font-family:'Bitter',serif; font-size:.92rem;}
+
+  /* ---- Main column ---- */
+  main.feed{ padding-bottom:1rem; }
+
+  .section{
+    scroll-margin-top:84px;
+    margin-bottom:3.4rem;
+  }
+  .section h2{
+    font-size:1.55rem;
+    display:inline-block;
+    position:relative;
+    margin-bottom:1.3rem;
+  }
+  .section h2::after{
+    content:"";
+    display:block;
+    width:100%; height:6px;
+    margin-top:.15rem;
+    background:
+      linear-gradient(90deg, var(--mustard) 60%, transparent 0) repeat-x;
+    background-size:10px 3px;
+    opacity:.7;
+  }
+
+  .lede{ max-width:640px; }
+  .lede::first-letter{
+    font-family:'Bitter', serif; font-weight:800;
+    font-size:3rem; float:left; line-height:.8;
+    padding-right:.45rem; margin-top:.1rem;
+    color:var(--teal);
+  }
+  .signature{
+    font-family:'Caveat', cursive;
+    font-size:1.6rem;
+    color:var(--ink);
+    margin-top:1rem;
+  }
+
+  .margin-note{
+    font-family:'Caveat', cursive;
+    font-size:1.2rem;
+    color:var(--coral);
+    display:block;
+    margin:.3rem 0 0 .2rem;
+  }
+
+  /* Education: transcript-style list, not cards */
+  .transcript{ max-width:700px; }
+  .t-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap:1rem;
+    padding:.9rem 0;
+    border-bottom:1px dotted var(--rule);
+  }
+  .t-row .what h3{ font-size:1.08rem; }
+  .t-row .what .where{ font-size:.85rem; color:var(--muted); margin-top:.15rem; }
+  .t-row .num{ white-space:nowrap; font-weight:600; color:var(--teal-dark); font-size:.95rem; }
+  .t-note{ font-size:.88rem; color:var(--muted); margin-top:1rem; max-width:640px; }
+
+  /* Experience: light cards, slight rotation variance */
+  .job{
+    background:var(--card);
+    border:1px solid var(--rule);
+    padding:1.4rem 1.6rem;
+    margin-bottom:1.1rem;
+    max-width:760px;
+  }
+  .job:nth-child(odd){ transform:rotate(-.4deg); }
+  .job:nth-child(even){ transform:rotate(.35deg); }
+  .job h3{ font-size:1.1rem; }
+  .job .meta{ font-size:.85rem; color:var(--muted); margin:.25rem 0 .8rem; }
+  .job ul{ margin-left:1.2rem; }
+  .job li{ margin-bottom:.4rem; font-size:.94rem; }
+
+  /* Research */
+  .paper{
+    border-left:3px solid var(--teal);
+    padding:.3rem 0 .3rem 1.2rem;
+    margin-bottom:1.8rem;
+    max-width:760px;
+  }
+  .paper h3{ font-size:1.1rem; }
+  .paper .meta{ font-size:.84rem; color:var(--muted); margin:.25rem 0 .7rem; }
+  .paper ul{ margin-left:1.2rem; margin-bottom:.6rem; }
+  .paper li{ font-size:.93rem; margin-bottom:.35rem; }
+  .paper .status{ font-size:.82rem; color:var(--muted); font-style:italic; }
+  .paper .dl{ font-size:.85rem; margin-left:.6rem; }
+
+  .interests-line{ max-width:700px; font-size:.95rem; color:var(--muted); margin-top:.6rem; }
+  .interests-line strong{ color:var(--text); }
+
+  /* Skills: flowing list not boxed grid */
+  .toolbox{ display:flex; flex-direction:column; gap:1rem; max-width:760px; }
+  .tool-row{ display:flex; gap:1rem; flex-wrap:wrap; align-items:baseline; }
+  .tool-row .label{ font-family:'Bitter', serif; font-weight:700; font-size:.92rem; min-width:150px; color:var(--teal-dark); }
+  .tool-row .items{ color:var(--text); font-size:.94rem; }
+
+  /* Projects: scrapbook cards, slight rotation, torn corner */
+  .projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1.4rem;
+    margin-top:.5rem;
+  }
+  .proj{
+    background:var(--card);
+    border:1px solid var(--rule);
+    padding:1.2rem 1.3rem;
+    position:relative;
+    transition:transform .2s;
+  }
+  .proj:nth-child(3n+1){ transform:rotate(-1deg); }
+  .proj:nth-child(3n+2){ transform:rotate(.6deg); }
+  .proj:nth-child(3n+3){ transform:rotate(-.3deg); }
+  .proj:hover{ transform:rotate(0deg) translateY(-2px); }
+  .proj h3{ font-size:1rem; margin-bottom:.4rem; }
+  .proj p{ font-size:.87rem; color:var(--muted); margin-bottom:.7rem; }
+  .proj .tech{ font-size:.76rem; color:var(--teal-dark); margin-bottom:.6rem; }
+  .proj a.repo{ font-size:.82rem; font-weight:600; }
+
+  /* Achievements: simple checklist, human */
+  .list-honest{ max-width:660px; }
+  .list-honest li{ list-style:none; padding:.6rem 0; border-bottom:1px dotted var(--rule); font-size:.95rem; }
+  .list-honest li .t{ font-weight:600; color:var(--ink); }
+  .list-honest li .d{ color:var(--muted); font-size:.87rem; }
+
+  /* Now section */
+  .now-box{
+    background:var(--card);
+    border:1px dashed var(--rule);
+    padding:1.3rem 1.5rem;
+    max-width:640px;
+  }
+  .now-box ul{ margin-left:1.2rem; margin-top:.5rem; }
+  .now-box li{ font-size:.93rem; margin-bottom:.4rem; }
+
+  /* ============ FOOTER / COLOPHON ============ */
+  footer{
+    margin-top:2rem;
+    border-top:1px solid var(--rule);
+    padding:2.4rem 2rem 3rem;
+  }
+  footer .wrap{ max-width:700px; }
+  footer p{ font-size:.87rem; color:var(--muted); margin-bottom:.7rem; }
+  footer .links{ font-size:.87rem; margin-bottom:1.2rem; }
+  footer .links a{ margin-right:1.2rem; }
+  footer .sign{ font-family:'Caveat', cursive; font-size:1.4rem; color:var(--ink); margin-top:1rem; }
+
+  @media (max-width:900px){
+    .layout{ grid-template-columns:1fr; }
+    aside.profile{ position:static; max-width:280px; margin:0 auto 2rem; }
+    nav ul{
+      position:fixed; top:60px; left:0; right:0;
+      background:var(--paper);
+      border-bottom:1px solid var(--rule);
+      flex-direction:column; gap:0;
+      max-height:0; overflow:hidden;
+      transition:max-height .3s;
+    }
+    nav ul.open{ max-height:400px; }
+    nav ul li a{ display:block; padding:.8rem 2rem; border-bottom:1px solid var(--paper-2); }
+    .nav-toggle{ display:block; }
+  }
+
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Aninda Roy Dhruba</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <ul id="navList">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#now">Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="top" id="top">
+  <h1>Aninda Roy Dhruba</h1>
+  <p class="role">Lecturer, Dept. of CSE, Northern University Bangladesh. CUET grad. I mostly think about how machines misread language, and how to teach that clearly to a room of undergrads at 9am.</p>
+  <div class="aside-note">
+    yes, I built<br>this site myself
+    <svg width="70" height="24" viewBox="0 0 70 24" fill="none"><path d="M2 4C20 22 40 2 68 18" stroke="#D65A34" stroke-width="2" stroke-linecap="round"/></svg>
+  </div>
+</header>
+
+<div class="wrap layout">
+
+  <!-- SIDEBAR -->
+  <aside class="profile">
+    <div class="polaroid">
+      <div class="tape"></div>
+      <div class="shot">
+        <img src="assets/profile.jpg" alt="Photo of Aninda Roy Dhruba"
+             onerror="this.style.display='none'; this.parentElement.querySelector('.monogram').style.display='flex';">
+        <div class="monogram" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;position:absolute;top:0;left:0;">ARD</div>
+      </div>
+      <div class="cap">that's me, probably mid-lecture</div>
+    </div>
+
+    <div class="contact-block">
+      <h2>Aninda Roy Dhruba</h2>
+      <div class="dept">Dept. of CSE · Northern University Bangladesh</div>
+      <ul>
+        <li><a href="mailto:anindaroydhruv@gmail.com">anindaroydhruv@gmail.com</a></li>
+        <li><a href="tel:+8801646517113">+880 1646-517113</a></li>
+        <li><a href="https://github.com/D-R0Y" target="_blank" rel="noopener">github.com/D-R0Y</a></li>
+        <li>Chittagong, Bangladesh</li>
+      </ul>
+    </div>
+
+    <a class="btn-cv" href="assets/Aninda_Roy_Dhruba_CV.pdf" download>Download my CV</a>
+
+    <div class="pin-note">
+      <strong>Quick facts</strong>
+      CGPA 3.89/4.00 at CUET · two papers currently under review · somewhere past 750 solved problems on Codeforces/LeetCode, mostly as procrastination from grading.
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="feed">
+
+    <section class="section" id="about">
+      <h2>About</h2>
+      <p class="lede">I finished my undergrad in Computer Science and Engineering at CUET in August 2025, and a few weeks later I was standing in front of a classroom as a Lecturer at Northern University Bangladesh — which is a faster turnaround than I expected, and I'm still getting used to being called "Sir" by people roughly my own age.</p>
+      <p style="margin-top:.9rem; max-width:640px;">Most of what I care about research-wise sits somewhere between NLP and medicine — right now that means hierarchical disease classification from patient conversations, and separately, trying to understand how bias creeps into language models and what, if anything, we can actually do about it. Neither project is finished. Both are currently sitting in review queues, which is its own kind of patience exercise.</p>
+      <p class="signature">— Aninda</p>
+    </section>
+
+    <section class="section" id="education">
+      <h2>Education</h2>
+      <div class="transcript">
+        <div class="t-row">
+          <div class="what">
+            <h3>B.Sc. in Computer Science &amp; Engineering</h3>
+            <div class="where">Chittagong University of Engineering and Technology (CUET)</div>
+          </div>
+          <div class="num">2021 – Aug 2025 · CGPA 3.89/4.00</div>
+        </div>
+        <div class="t-row">
+          <div class="what">
+            <h3>Higher Secondary Certificate</h3>
+            <div class="where">Sonar Bangla College, Cumilla</div>
+          </div>
+          <div class="num">June 2019 · GPA 5.00/5.00</div>
+        </div>
+        <div class="t-row">
+          <div class="what">
+            <h3>Secondary School Certificate</h3>
+            <div class="where">Barura Haji Nowab Ali Pilot High School, Cumilla</div>
+          </div>
+          <div class="num">Apr 2017 · GPA 5.00/5.00</div>
+        </div>
+      </div>
+      <p class="t-note">Made the Dean's List for keeping CGPA above 3.75. Coursework that's actually stuck with me: Compiler Design, Data Structures &amp; Algorithms, Machine Learning, Database Systems, High Performance Computing — the rest I've had to relearn on the job, which is, I've realized, how it goes for most people.</p>
+    </section>
+
+    <section class="section" id="experience">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <h3>Lecturer</h3>
+        <div class="meta">Dept. of CSE, Northern University Bangladesh · Aug 2025 – Present</div>
+        <ul>
+          <li>Teach Data Structures, OOP with Java, Computer Networks, Microprocessor &amp; Assembly Language Programming, and System Analysis &amp; Design</li>
+          <li>Write my own course material and exams instead of recycling old slide decks, which takes longer but I think is worth it</li>
+          <li>Advise a handful of students on their own projects and early research attempts</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Industrial Attachment</h3>
+        <div class="meta">RedDot Digital Limited, Dhaka · Dec 2024 – Jan 2025</div>
+        <ul>
+          <li>My first real look at how software actually ships — SDLC on paper is tidy, in practice it's a lot of Slack messages</li>
+          <li>Sat in on QA and deployment processes, took notes I still refer back to when teaching</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <h2>Research</h2>
+
+      <div class="paper">
+        <h3>Hierarchical Symptom-Based Disease Classification</h3>
+        <div class="meta">Undergraduate thesis · Jun 2024 – Jul 2025 · with Dr. Muhammad Ibrahim Khan, Professor, Dept. of CSE, CUET</div>
+        <ul>
+          <li>Built a dataset of patient conversations covering 16 diseases across 4 medical specializations, mostly by hand at first</li>
+          <li>Designed a hierarchical classifier with a custom loss function, then fine-tuned domain-specific transformer models on top of it</li>
+        </ul>
+        <span class="status">Submitted to ICCIT, still waiting to hear back</span>
+        <a class="dl" href="papers/hierarchical-disease-classification.pdf" download>— read the manuscript</a>
+      </div>
+
+      <div class="paper">
+        <h3>Bias Detection &amp; Mitigation in NLP</h3>
+        <div class="meta">Research Associate, Learnify Research Lab · May 2025 – Present</div>
+        <ul>
+          <li>Working through 17 distinct categories of bias that show up in NLP systems — more than I expected going in</li>
+          <li>Writing a comparative survey of the detection and mitigation methods people are actually using, versus what's just cited a lot</li>
+        </ul>
+        <span class="status">Submitted to Elsevier's Array journal, under review</span>
+        <a class="dl" href="papers/bias-nlp-survey.pdf" download>— read the manuscript</a>
+      </div>
+
+      <div class="paper">
+        <h3>Electric Load Forecasting Using Time Series Analysis</h3>
+        <div class="meta">Research Collaborator · Mar – Jun 2025 · with Md. Kamrul Hasan, Dept. of CSE, CUET</div>
+        <ul>
+          <li>Scraped and cleaned PGCB's electrical load data going back to 2016</li>
+          <li>Tried a handful of forecasting approaches before landing on one that got MAPE down to 1.09%, which I was genuinely pleased about</li>
+        </ul>
+      </div>
+
+      <p class="interests-line"><strong>What I keep coming back to:</strong> natural language processing, applied machine learning, reinforcement learning, bias and fairness in AI, and medical applications of all of the above.</p>
+    </section>
+
+    <section class="section" id="skills">
+      <h2>Skills</h2>
+      <div class="toolbox">
+        <div class="tool-row"><span class="label">Languages</span><span class="items">C/C++, Java, Python, JavaScript</span></div>
+        <div class="tool-row"><span class="label">ML &amp; deep learning</span><span class="items">PyTorch, TensorFlow, scikit-learn, transformers (BERT/GPT-style architectures), CNNs, RNNs</span></div>
+        <div class="tool-row"><span class="label">Web</span><span class="items">Next.js, Node.js, Flask, HTML/CSS, REST APIs</span></div>
+        <div class="tool-row"><span class="label">Data</span><span class="items">Pandas, NumPy, Matplotlib/Seaborn, Jupyter, statistical modeling</span></div>
+        <div class="tool-row"><span class="label">Tools</span><span class="items">Git, Docker, GitHub Actions, Linux</span></div>
+        <div class="tool-row"><span class="label">Databases</span><span class="items">MySQL, MongoDB, Firebase</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <h2>Things I've built</h2>
+      <div class="projects-grid">
+
+        <div class="proj">
+          <h3>FreeToWork</h3>
+          <p>A service marketplace — people post jobs, professionals bid on them, everyone gets real-time notifications instead of refreshing a page.</p>
+          <div class="tech">Next.js · MongoDB · REST</div>
+          <a class="repo" href="https://github.com/D-R0Y" target="_blank" rel="noopener">Source on GitHub →</a>
+        </div>
+
+        <div class="proj">
+          <h3>Maven</h3>
+          <p>A mobile e-learning app with a coin-based reward system and a dashboard for instructors to actually see how students are doing.</p>
+          <div class="tech">Flutter · Firebase · Firestore</div>
+          <a class="repo" href="https://github.com/D-R0Y" target="_blank" rel="noopener">Source on GitHub →</a>
+        </div>
+
+        <div class="proj">
+          <h3>Diabetic Retinopathy Detection</h3>
+          <p>Compared five CNN architectures for screening retinal scans, wrapped the best ensemble in a simple Flask interface.</p>
+          <div class="tech">TensorFlow · Keras · OpenCV · Flask</div>
+          <a class="repo" href="https://github.com/D-R0Y" target="_blank" rel="noopener">Source on GitHub →</a>
+        </div>
+
+        <div class="proj">
+          <h3>Discord 1v1 Challenge Bot</h3>
+          <p>Built this mostly for my own friend group — pulls Codeforces problems for live duels and keeps a leaderboard nobody asked for but everyone checks.</p>
+          <div class="tech">Python · Discord.py · Codeforces API</div>
+          <a class="repo" href="https://github.com/D-R0Y" target="_blank" rel="noopener">Source on GitHub →</a>
+        </div>
+
+        <div class="proj">
+          <h3>Car Rental Management System</h3>
+          <p>An OOP coursework project that got more elaborate than it needed to — vehicle tracking, billing, the works.</p>
+          <div class="tech">Java · Design Patterns</div>
+          <a class="repo" href="https://github.com/D-R0Y" target="_blank" rel="noopener">Source on GitHub →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="achievements">
+      <h2>A few other things</h2>
+      <ul class="list-honest">
+        <li><span class="t">Dean's List, CUET</span> — <span class="d">kept CGPA above 3.75 the whole way through</span></li>
+        <li><span class="t">UNLP Shared Task 2024</span> — <span class="d">placed 5th in two tracks</span></li>
+        <li><span class="t">Competitive programming</span> — <span class="d">750+ problems solved across Codeforces, LeetCode, HackerRank</span></li>
+        <li><span class="t">Bangladesh Chemistry Olympiad, 2018</span> — <span class="d">18th, Cumilla regional round</span></li>
+        <li><span class="t">Creative Talent Search Competition, 2019</span> — <span class="d">1st in Mathematics &amp; ICT, Cumilla regional round</span></li>
+      </ul>
+    </section>
+
+    <section class="section" id="now">
+      <h2>Now</h2>
+      <div class="now-box">
+        <p>What's actually on my desk this month:</p>
+        <ul>
+          <li>Prepping lecture material for the new semester at NUB</li>
+          <li>Waiting on reviewer comments from ICCIT and Elsevier's Array — refreshing my inbox more than I'd like to admit</li>
+          <li>Slowly rewriting this site's copy every time I reread it and cringe a little</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="links">
+      <a href="mailto:anindaroydhruv@gmail.com">Email me</a>
+      <a href="https://github.com/D-R0Y" target="_blank" rel="noopener">GitHub</a>
+      <a href="assets/Aninda_Roy_Dhruba_CV.pdf" download>CV</a>
+      <a href="#top">Back to top</a>
+    </p>
+    <p>This page is hand-written HTML and CSS — no framework, mostly out of stubbornness. If something looks broken on your browser, it's probably my fault; email me and I'll get to it eventually.</p>
+    <p class="sign">— A.R.D., Chittagong</p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const list = document.getElementById('navList');
+  toggle.addEventListener('click', () => list.classList.toggle('open'));
+  list.querySelectorAll('a').forEach(a => a.addEventListener('click', () => list.classList.remove('open')));
+</script>
+
+</body>
+</html>
