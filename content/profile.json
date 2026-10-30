@@ -1,0 +1,46 @@
+{
+  "name": "Aninda Roy Dhruba",
+  "role": "Lecturer, Department of CSE",
+  "affiliation": "Northern University Bangladesh",
+  "location": "Dhaka, Bangladesh",
+  "email": "anindaroydhruv@gmail.com",
+  "site_url": "",
+  "intro": "I study how learning systems can make better use of structure—and how their predictions can be evaluated beyond a single score. My work spans hierarchical medical classification, bias in NLP, and time-series forecasting.",
+  "about": "I am a Computer Science and Engineering graduate of Chittagong University of Engineering and Technology (CUET), and a Lecturer at Northern University Bangladesh. My research experience connects machine learning, optimization, and medical applications. I am preparing for doctoral research in Computer Science, with an interest in building medical AI systems whose objectives and evaluation reflect the structure of the problems they address.",
+  "direction": "Building on my work in hierarchical classification and NLP bias, I hope to investigate how structured objectives, uncertainty-aware evaluation, and optimization can support more dependable medical AI. Reinforcement learning and intelligent control are further interests I would like to explore.",
+  "profiles": [
+    {"label": "Google Scholar", "url": "https://scholar.google.com/citations?user=kiLhyQgAAAAJ&hl=en"},
+    {"label": "GitHub", "url": "https://github.com/D-R0Y"}
+  ],
+  "themes": [
+    {"title": "Structure-aware medical AI", "text": "Learning from patient dialogue while respecting relationships between medical specializations and diseases.", "question": "How can training objectives preserve clinically meaningful consistency across prediction levels?"},
+    {"title": "Bias & model evaluation", "text": "Understanding how bias arises and propagates through NLP training pipelines and decoding strategies.", "question": "How can evaluation reveal failure patterns that aggregate performance measures overlook?"},
+    {"title": "Optimization & sequential learning", "text": "Connecting experience in time-series modeling and ensemble tuning with an interest in reinforcement learning and intelligent control.", "question": "How can optimization improve learning from temporal signals and inform future medical AI research?"}
+  ],
+  "research": [
+    {"title": "Hierarchical medical dialogue classification", "role": "Graduate Researcher · CUET", "dates": "Jun 2024 – Jul 2025", "problem": "Classifying patient conversations across 16 diseases and four medical specializations while maintaining consistency between the two levels.", "contribution": "Designed a hierarchical pipeline and custom multi-objective loss functions to jointly optimize inter-level consistency and classification accuracy. Fine-tuned BanglaBERT and ClinicalBERT and examined model complexity–performance trade-offs.", "outcome": "A portion of this thesis work was accepted at ICCIT 2025, as reported in the CV.", "methods": "Hierarchical learning / Transformer models / Loss function design"},
+    {"title": "Bias propagation in NLP systems", "role": "Research Associate · Learnify Research Lab", "dates": "May 2025 – Present", "problem": "Understanding bias types and how their effects propagate across the NLP model development process.", "contribution": "Investigating 18 distinct bias types and propagation mechanisms across training pipelines and decoding strategies.", "outcome": "Survey paper published in Elsevier’s Array journal, as reported in the CV.", "methods": "NLP / Bias analysis / Training and decoding"},
+    {"title": "Electrical load forecasting", "role": "Research Collaborator · CUET", "dates": "Mar – Jun 2025", "problem": "Forecasting electrical demand from historical Power Grid Company of Bangladesh (PGCB) load data.", "contribution": "Developed LSTM, ARIMA, and hybrid forecasting models. Applied signal decomposition, feature engineering, hyperparameter optimization, and ensemble tuning to capture seasonal demand patterns.", "outcome": "Reported 1.09% MAPE in the CV. Evaluation protocol and dataset period are not specified consistently in the source.", "methods": "Time-series analysis / LSTM / ARIMA / Ensemble optimization"}
+  ],
+  "publications": [
+    {"label": "Survey on bias types and propagation mechanisms in NLP systems", "venue": "Array · Elsevier", "status": "Published · per CV", "note": "Descriptive label from CV; full citation and year awaiting confirmation.", "url": "https://www.sciencedirect.com/science/article/pii/S2590005626000962"},
+    {"label": "Hierarchical disease classification from patient dialogue using transformer models", "venue": "IEEE ICCIT 2025", "status": "Accepted · per CV", "note": "Descriptive label from CV; full citation awaiting confirmation.", "url": "https://ieeexplore.ieee.org/abstract/document/11490184"}
+  ],
+  "projects": [
+    {"title": "Diabetic retinopathy detection", "text": "Combined five CNN architecture families—VGG, ResNet, InceptionV3, DenseNet, and EfficientNet—for multi-class retinal grading. Examined model agreement and uncertainty to guide ensemble weighting, with a Flask interface for inference.", "tools": "TensorFlow · OpenCV · Flask", "url": "https://github.com/D-R0Y/Diabetic-Retinopathy-Classification-with-flask-interface"},
+    {"title": "Competitive programming duel bot", "text": "Built an adaptive challenge and skill-matching system using the Codeforces API and Elo-based rating updates. The project explores feedback-based opponent pairing; it is not presented as a trained reinforcement learning agent.", "tools": "Python · Discord.py · Codeforces API", "url": "https://github.com/D-R0Y/1v1-BOT"},
+    {"title": "FreeToWork", "text": "Developed a service marketplace with bidding, user authentication, and real-time notifications, bringing together full-stack application design and data management.", "tools": "Next.js · MongoDB", "url": "https://github.com/D-R0Y/Free-to-work"}
+  ],
+  "education": {"degree": "B.Sc. in Computer Science and Engineering", "institution": "Chittagong University of Engineering and Technology", "date": "Aug 2025", "detail": "CGPA 3.89 / 4.00 · Dean’s List"},
+  "experience": [
+    {"title": "Lecturer, Department of CSE", "institution": "Northern University Bangladesh · Dhaka", "dates": "Aug 2025 – Present", "text": "Teaching Data Structures, Structured Programming, OOP with Java, Computer Networks, Microprocessor & Assembly Language, and System Analysis & Design. Designing course materials, assignments, and examinations."},
+    {"title": "Industrial Attachment", "institution": "RedDot Digital Limited · Dhaka", "dates": "Dec 2024 – Jan 2025", "text": "Observed software development lifecycle practices, project management workflows, and deployment strategies."}
+  ],
+  "skills": [
+    {"label": "Machine learning", "text": "PyTorch, TensorFlow, Scikit-learn, Hugging Face Transformers; BERT, GPT, CNNs, RNNs, LSTMs; loss function design and hyperparameter optimization."},
+    {"label": "Foundations", "text": "Linear algebra, probability and statistics, convex optimization, time-series analysis; reinforcement learning (Q-learning, policy gradient)."},
+    {"label": "Programming", "text": "Python, C, C++, Java, JavaScript, MATLAB."},
+    {"label": "Engineering", "text": "Next.js, Node.js, Flask, Flutter, HTML/CSS, REST APIs; MySQL, MongoDB, Firebase; Git, Docker, Linux; MATLAB signal processing and simulation."}
+  ],
+  "achievements": ["Dean’s List — CGPA ≥ 3.75 throughout undergraduate studies at CUET.", "UNLP Shared Task 2024 — 5th place in two competition tracks.", "750+ competitive programming problems solved across Codeforces, LeetCode, and HackerRank.", "Creative Talent Search Competition (Math & ICT), 2019 — 1st place, Regional Round (Cumilla)."]
+}
